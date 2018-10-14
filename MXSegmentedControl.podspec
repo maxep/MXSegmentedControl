@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = "MXSegmentedControl"
-  s.version          = "0.1.0"
+  s.version          = "0.1.1"
   s.summary          = "A very customizable segmented control for iOS."
   s.description      = <<-DESC
 MXSegmentedControl is a segmented control framework for iOS:

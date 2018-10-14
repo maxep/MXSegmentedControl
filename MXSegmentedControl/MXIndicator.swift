@@ -73,7 +73,7 @@ public class MXIndicator: UIView {
     override public func layoutSubviews() {
         super.layoutSubviews()
         
-        var frame = UIEdgeInsetsInsetRect(bounds, contentEdgeInsets)
+        var frame = bounds.inset(by: contentEdgeInsets)
         
         if linePosition == .top {
             

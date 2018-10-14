@@ -98,7 +98,7 @@ import UIKit
     }
     
     /// The segmented control's indicator.
-    open let indicator = MXIndicator()
+    public let indicator = MXIndicator()
     
     /// The segmented control's separators.
     public internal(set) var separators: Separators {
@@ -194,7 +194,7 @@ import UIKit
     open override func layoutSubviews() {
         super.layoutSubviews()
         
-        var frame = UIEdgeInsetsInsetRect(bounds, contentEdgeInsets)
+        var frame = bounds.inset(by: contentEdgeInsets)
         _scrollView.frame = frame
         
         let size = contentView.intrinsicContentSize
@@ -525,7 +525,7 @@ extension MXSegmentedControl {
         
         override var intrinsicContentSize: CGSize {
             get {
-                var size = CGSize(width: CGFloat(separators.layers.count) * separators.inset.width, height: UIViewNoIntrinsicMetric)
+                var size = CGSize(width: CGFloat(separators.layers.count) * separators.inset.width, height: UIView.noIntrinsicMetric)
                 for segment in segments {
                     size.width += segment.width
                     size.height = max(segment.intrinsicContentSize.height, size.height)
@@ -593,7 +593,7 @@ extension MXSegmentedControl {
         public var velocity: CGFloat
         
         /// A mask of options indicating how you want to perform the animations. For a list of valid constants, see UIViewAnimationOptions.
-        public var options: UIViewAnimationOptions
+        public var options: UIView.AnimationOptions
     }
     
 }
