@@ -116,7 +116,10 @@ import UIKit
     
     /// The currently selected segment index.
     public private(set) var selectedIndex: Int = 0 {
-        willSet { contentView.segments[selectedIndex].isSelected = false }
+        willSet {
+            guard selectedIndex < contentView.segments.count else { return }
+            contentView.segments[selectedIndex].isSelected = false
+        }
         didSet {
             sendActions(for: .valueChanged)
             contentView.segments[selectedIndex].isSelected = true
