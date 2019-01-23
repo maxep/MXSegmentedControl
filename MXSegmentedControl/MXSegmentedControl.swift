@@ -29,7 +29,7 @@ import UIKit
 /// You can connect a UIScrollView using the `scrollView` property to make the indicator move with the scroll view's contentOffset.
 ///
 /// You register the target-action methods for a segmented control using the value​Changed constant as shown below.
-/// 
+///
 ///     segmentedControl.addTarget(self, action: "action:", forControlEvents: .ValueChanged)
 @IBDesignable open class MXSegmentedControl: UIControl {
     
@@ -98,7 +98,7 @@ import UIKit
     }
     
     /// The segmented control's indicator.
-    open let indicator = MXIndicator()
+    public let indicator = MXIndicator()
     
     /// The segmented control's separators.
     public internal(set) var separators: Separators {
@@ -116,10 +116,7 @@ import UIKit
     
     /// The currently selected segment index.
     public private(set) var selectedIndex: Int = 0 {
-        willSet {
-            guard selectedIndex < contentView.segments.count else { return }
-            contentView.segments[selectedIndex].isSelected = false
-        }
+        willSet { contentView.segments[selectedIndex].isSelected = false }
         didSet {
             sendActions(for: .valueChanged)
             contentView.segments[selectedIndex].isSelected = true
@@ -196,8 +193,9 @@ import UIKit
     /// :nodoc:
     open override func layoutSubviews() {
         super.layoutSubviews()
-        
-        var frame = UIEdgeInsetsInsetRect(bounds, contentEdgeInsets)
+       
+        var frame = self.bounds //container.inset(by: margin)//CGRect.insetBy(self.bounds)
+        //UIEdgeInsetsInsetRect(bounds, contentEdgeInsets)
         _scrollView.frame = frame
         
         let size = contentView.intrinsicContentSize
@@ -528,7 +526,7 @@ extension MXSegmentedControl {
         
         override var intrinsicContentSize: CGSize {
             get {
-                var size = CGSize(width: CGFloat(separators.layers.count) * separators.inset.width, height: UIViewNoIntrinsicMetric)
+                var size = CGSize(width: CGFloat(separators.layers.count) * separators.inset.width, height: UIView.noIntrinsicMetric)
                 for segment in segments {
                     size.width += segment.width
                     size.height = max(segment.intrinsicContentSize.height, size.height)
@@ -571,7 +569,7 @@ extension MXSegmentedControl {
         }
         
     }
-
+    
 }
 
 // MARK: - Animation
@@ -596,7 +594,7 @@ extension MXSegmentedControl {
         public var velocity: CGFloat
         
         /// A mask of options indicating how you want to perform the animations. For a list of valid constants, see UIViewAnimationOptions.
-        public var options: UIViewAnimationOptions
+        public var options: UIView.AnimationOptions
     }
     
 }

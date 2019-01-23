@@ -47,7 +47,7 @@ public class MXSegment: UIButton {
     /// The segment width
     public var width: CGFloat {
         get {
-            if _width == UIViewNoIntrinsicMetric {
+            if _width == UIView.noIntrinsicMetric {
                 return intrinsicContentSize.width
             }
             return _width
@@ -55,7 +55,7 @@ public class MXSegment: UIButton {
         set { _width = newValue }
     }
     
-    private var _width: CGFloat = UIViewNoIntrinsicMetric
+    private var _width: CGFloat = UIView.noIntrinsicMetric
     
     @discardableResult public func set(width: CGFloat) -> MXSegment {
         self.width = width
@@ -72,27 +72,27 @@ public class MXSegment: UIButton {
         return self
     }
     
-    @discardableResult public func set(title: String?, for state: UIControlState = .normal) -> MXSegment {
+    @discardableResult public func set(title: String?, for state: UIControl.State = .normal) -> MXSegment {
         super.setTitle(title, for: state)
         return self
     }
     
-    @discardableResult public func set(title color: UIColor?, for state: UIControlState = .normal) -> MXSegment {
+    @discardableResult public func set(title color: UIColor?, for state: UIControl.State = .normal) -> MXSegment {
         super.setTitleColor(color, for: state)
         return self
     }
     
-    @discardableResult public func set(image: UIImage?, for state: UIControlState = .normal) -> MXSegment {
+    @discardableResult public func set(image: UIImage?, for state: UIControl.State = .normal) -> MXSegment {
         super.setImage(image, for: state)
         return self
     }
     
-    @discardableResult public func set(background image: UIImage?, for state: UIControlState = .normal) -> MXSegment {
+    @discardableResult public func set(background image: UIImage?, for state: UIControl.State = .normal) -> MXSegment {
         super.setBackgroundImage(image, for: state)
         return self
     }
     
-    @discardableResult public func set(attributedTitle: NSAttributedString?, for state: UIControlState = .normal) -> MXSegment {
+    @discardableResult public func set(attributedTitle: NSAttributedString?, for state: UIControl.State = .normal) -> MXSegment {
         super.setAttributedTitle(attributedTitle, for: state)
         return self
     }

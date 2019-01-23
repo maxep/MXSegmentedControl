@@ -64,7 +64,7 @@ public class MXIndicator: UIView {
         lineView.backgroundColor = tintColor
         boxView.backgroundColor = tintColor
         boxView.alpha = 0
-
+        
         addSubview(boxView)
         addSubview(lineView)
     }
@@ -73,7 +73,8 @@ public class MXIndicator: UIView {
     override public func layoutSubviews() {
         super.layoutSubviews()
         
-        var frame = UIEdgeInsetsInsetRect(bounds, contentEdgeInsets)
+        var frame = self.bounds //container.inset(by: margin)
+        //UIEdgeInsetsInsetRect(bounds, contentEdgeInsets)
         
         if linePosition == .top {
             
@@ -92,5 +93,5 @@ public class MXIndicator: UIView {
             lineView.frame = frame
         }
     }
-
+    
 }
