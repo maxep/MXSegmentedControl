@@ -10,7 +10,8 @@ install:
 - gem install cocoapods
 - gem install xcpretty --no-rdoc --no-ri --no-document --quiet
 script:
-- set -o pipefail && xcodebuild -project MXSegmentedControl.xcodeproj -scheme $FRAMEWORK_NAME -sdk iphonesimulator12.1 -configuration Release | xcpretty -c
+- set -o pipefail && xcodebuild -project MXSegmentedControl.xcodeproj -scheme $FRAMEWORK_NAME
+  -sdk iphonesimulator12.1 -configuration Release | xcpretty -c
 - pod lib lint --quick
 before_deploy:
 - carthage build --no-skip-current
@@ -18,8 +19,8 @@ before_deploy:
 deploy:
   provider: releases
   api_key:
-    secure: DlAex/6HeevmNsByR/9mMXsDaUXwfWF7PEY6S9wOw29kwbcbI64IQNip7sRnfI8CGuXUAYNYQf8IzLLUSJbWWzXaay2aJcIXbGt9fCkgn3UhK72piLZk+GZww+1/afPciHNorbiSg7Fgd1ZLPkuyzMtX895iFGSbTE9mEFHljQwlSQQv5tyGH6Kx76XFTpnehsfG/vM9WUReWw35kghSOF3uHtTDNpG7znDgmcHSy8Jyq65XwA3i3zE668VOq7i8pdatSuQ5FVZSuws4WOZcg642GpIkYAcvTgs3QzcdcL6N/Ulvl++9mM9RsOZIXey5zd/RI2LJbBisOUVfAORk57VI9LyDKHz0iuP8NS6wzZXumZ6kmI77QzwApBrb0BqKqECtKZgBOAqALWpcBdJx6gvKiUUhn+HQ+QbPGxqp128gFa+dfXiE4qpb9vKJMV7rPUIaSAeiBL3B0BgiGFu0pc2HGz/eFs1+q85hr7651i9FUfQEEn8owxnHr/nqCYNPkagKTxOdl0s3tPsfVjwQHPD/dEGWZP23aqXBtkFEb0wqQmyv7dehdxFD7246OLlyjsP3iCVBZt3nYXXzP/KnFgYljdQp3lIBK4OUDzknrwg6WgVyA6u4fri7eYDVuYTfxwwlwPpQT7VckaCeIHm4H5R6vHGMlsflqOR0g36TuZE=
-  file: $FRAMEWORK_NAME.framework.zip
+    secure: GCbSn67brClZCNGbnlqGkwnWjFLSgYwWkjAOhkqBGIKzh/pARW227QXdDZP9vPz3oLxO/ux/tM1aojweakJCzIoYXENijTcB5rt7teUDsFiH/UInjfTCxNRLNzREUrvwOywAwEq37Ysdw3QH222SnJIVPl14ucwCyXXDMMQUmeyHLJg46AfNhZBheuWdzH5skAel9K68FOMeW9rbDEAUiXi+UHFRfmpEy0g0ukfVsVmnXB7YYQLN7ATz3fTwe6rMwPBneh5eibG7mNA81ROfsyLV7JUibjSzDIaXYPjsS+PCD8c7hWgfaTUdEeqjgOAAhwlbJz0yq5Z/ONtpRoCVFzniMV9gghr32rrt8+RvyrL9ELiqoWg9IvTQg9gNZ0wtMyT0pPTRuFxX4iD4kd0Q4YQjiPRsekxN3sOInE/njBYer69m3+geX25PcAxLCSZiuj2tXEcm4GPrApX+M822uU1PFq/8yOw6z8zfdTTgKu6l0HJaDTtqQ9BLU7m5lf0B2xQ7aloRucBPoJK+G2xOC/z6uZ06vJPoHi4eNRuiCSbThWg9NCBnWcAqYfcK/0kbQTc7E2olI13Wo5hXjXLQTpWIjkRt42Y5d11Hy4tUDF6qCx696W3rWWZnkkEWqtA7n0YYxhws8MiK7X1sedx7XrF8UfZU33TybPXt7pv726s=
+  file: "$FRAMEWORK_NAME.framework.zip"
   skip_cleanup: true
   on:
     repo: maxep/MXSegmentedControl
