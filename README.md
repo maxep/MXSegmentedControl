@@ -24,7 +24,7 @@ pod 'MXSegmentedControl'
 
 ## Usage
 
-+ You can configure a simple segemented control like following:
++ You can configure a simple segmented control like following:
 
 ```swift
 segmentedControl.append(title: "First")
