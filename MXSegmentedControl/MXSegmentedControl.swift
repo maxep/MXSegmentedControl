@@ -143,7 +143,7 @@ import UIKit
     /// Initializes and returns a newly allocated segmented control object with the specified titles.
     ///
     /// - Parameter titles: The segments titles.
-    convenience init(withTitles titles: [String]) {
+    public convenience init(withTitles titles: [String]) {
         self.init(frame: CGRect.zero)
         for title in titles {
             append(title: title)
