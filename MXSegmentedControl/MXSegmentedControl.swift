@@ -31,7 +31,9 @@ import UIKit
 /// You register the target-action methods for a segmented control using the value​Changed constant as shown below.
 ///
 ///     segmentedControl.addTarget(self, action: "action:", forControlEvents: .ValueChanged)
-@IBDesignable open class MXSegmentedControl: UIControl {
+@IBDesignable
+@objcMembers
+open class MXSegmentedControl: UIControl {
     
     // MARK: Customizing Appearance
     
@@ -289,7 +291,6 @@ import UIKit
 }
 
 // MARK: - Interface Builder Inspectable and Appearence
-
 extension MXSegmentedControl {
     
     @IBInspectable public dynamic var cornerRadius: CGFloat {

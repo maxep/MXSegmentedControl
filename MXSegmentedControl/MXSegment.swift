@@ -23,6 +23,7 @@
 import UIKit
 
 /// A segment button embed in MXSegmentedControl
+@objcMembers
 public class MXSegment: UIButton {
     
     /// The Image position in segment related to title.
@@ -75,8 +76,8 @@ public class MXSegment: UIButton {
         return self
     }
     
-    @discardableResult public func set(title color: UIColor?, for state: UIControl.State = .normal) -> MXSegment {
-        super.setTitleColor(color, for: state)
+    @discardableResult public func set(titleColor: UIColor?, for state: UIControl.State = .normal) -> MXSegment {
+        super.setTitleColor(titleColor, for: state)
         return self
     }
     

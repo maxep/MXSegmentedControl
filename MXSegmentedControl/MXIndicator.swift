@@ -22,6 +22,7 @@
 
 import UIKit
 
+@objcMembers
 public class MXIndicator: UIView {
     
     /// The indicator line position
