@@ -183,9 +183,8 @@ import UIKit
     }
     
     deinit {
-        if let scrollView = scrollView {
-            scrollView.removeObserver(self, forKeyPath: keyPath, context: &context)
-        }
+        guard let scrollView = scrollView else { return }
+        scrollView.removeObserver(self, forKeyPath: keyPath, context: &context)
     }
     
     // MARK: Layout
@@ -194,8 +193,7 @@ import UIKit
     open override func layoutSubviews() {
         super.layoutSubviews()
        
-        var frame = self.bounds //container.inset(by: margin)//CGRect.insetBy(self.bounds)
-        //UIEdgeInsetsInsetRect(bounds, contentEdgeInsets)
+        var frame = self.bounds.inset(by: contentEdgeInsets)
         _scrollView.frame = frame
         
         let size = contentView.intrinsicContentSize
@@ -386,7 +384,7 @@ extension MXSegmentedControl {
         return contentView.segments.count
     }
     
-    private func newSegment() -> MXSegment {
+    public func newSegment() -> MXSegment {
         
         let segment = MXSegment()
         
@@ -482,7 +480,7 @@ extension MXSegmentedControl {
     
     class ContentView: UIView {
         
-        internal(set) var segments = [MXSegment]()
+        var segments = [MXSegment]()
         
         var separators = Separators()
         

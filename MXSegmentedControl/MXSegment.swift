@@ -47,10 +47,8 @@ public class MXSegment: UIButton {
     /// The segment width
     public var width: CGFloat {
         get {
-            if _width == UIView.noIntrinsicMetric {
-                return intrinsicContentSize.width
-            }
-            return _width
+            guard _width == UIView.noIntrinsicMetric else { return _width }
+            return intrinsicContentSize.width
         }
         set { _width = newValue }
     }
@@ -257,7 +255,6 @@ extension MXSegment {
         let titleSize = titleLabel.intrinsicContentSize
         
         // Compute Title Label Frame
-        
         var width = contentRect.width
         width -= titleEdgeInsets.left
         width -= titleEdgeInsets.right
@@ -394,7 +391,6 @@ extension MXSegment {
         
         imageView.frame = CGRect(x: x, y: y, width: width, height: height)
         //
-        
     }
     
 }
