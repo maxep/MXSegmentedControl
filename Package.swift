@@ -2,7 +2,7 @@
 import PackageDescription
 
 let package = Package(
-    name: "FCMainClient",
+    name: "MXSegmentedControl",
     platforms: [.iOS(.v8)],
     products: [
         .library(name: "MXSegmentedControl",
