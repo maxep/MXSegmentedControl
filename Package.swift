@@ -14,5 +14,5 @@ let package = Package(
             path: "MXSegmentedControl"
         )
     ],
-    swiftLanguageVersions: [.v5,.v4]
+    swiftLanguageVersions: [.v5,.v4_2]
 )
