@@ -84,6 +84,14 @@ open class MXSegmentedControl: UIControl {
         }
     }
     
+    /// Indicates if the segments should fit the whole width available space when the number of segments (multiplied by each segmentWidth) 
+    /// do not cover the whole available width space. Default is `true`. 
+    @IBInspectable public var segmentsShouldFitWidthSpace: Bool = true {
+        didSet {            
+            setNeedsLayout()
+        }
+    }
+    
     /// The segmented control content insets
     @IBInspectable public dynamic var contentEdgeInsets = UIEdgeInsets.zero
     
@@ -199,7 +207,7 @@ open class MXSegmentedControl: UIControl {
         _scrollView.frame = frame
         
         let size = contentView.intrinsicContentSize
-        if size.width > frame.size.width {
+        if size.width > frame.size.width || !segmentsShouldFitWidthSpace {
             frame.size.width = size.width
         }
         
